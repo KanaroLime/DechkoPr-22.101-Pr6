@@ -1,0 +1,1323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище РесторанModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ancestor">
+          <Key>
+            <PropertyRef Name="Ancestor code" />
+          </Key>
+          <Property Name="Ancestor code" Type="int" Nullable="false" />
+          <Property Name="OrderDishes code" Type="int" Nullable="false" />
+          <Property Name="TableNumber" Type="int" Nullable="false" />
+          <Property Name="Staff code" Type="int" Nullable="false" />
+          <Property Name="AncestorDate" Type="date" Nullable="false" />
+          <Property Name="TaxPrice code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cheque">
+          <Key>
+            <PropertyRef Name="Cheque code" />
+          </Key>
+          <Property Name="Cheque code" Type="int" Nullable="false" />
+          <Property Name="TotalAmount" Type="money" Nullable="false" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PaymentDate" Type="money" Nullable="false" />
+          <Property Name="Ancesor code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="Dishes code" />
+          </Key>
+          <Property Name="Dishes code" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DishIngredients">
+          <Key>
+            <PropertyRef Name="DishIngredients code" />
+          </Key>
+          <Property Name="DishIngredients code" Type="int" Nullable="false" />
+          <Property Name="Ingredients code" Type="int" Nullable="false" />
+          <Property Name="Dishes code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EntertainmentPrograms">
+          <Key>
+            <PropertyRef Name="EntertainmentPrograms code" />
+          </Key>
+          <Property Name="EntertainmentPrograms code" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="Ingredients code" />
+          </Key>
+          <Property Name="Ingredients code" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Unit code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Menu code" />
+          </Key>
+          <Property Name="Menu code" Type="int" Nullable="false" />
+          <Property Name="Dishes code" Type="int" Nullable="false" />
+          <Property Name="Date" Type="int" Nullable="false" />
+          <Property Name="Price" Type="nchar" MaxLength="10" />
+          <Property Name="Description" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuDises">
+          <Key>
+            <PropertyRef Name="MenuDishes" />
+          </Key>
+          <Property Name="MenuDishes" Type="int" Nullable="false" />
+          <Property Name="Menu code" Type="int" Nullable="false" />
+          <Property Name="Dishes code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Order code" />
+          </Key>
+          <Property Name="Order code" Type="int" Nullable="false" />
+          <Property Name="Date" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderDishes">
+          <Key>
+            <PropertyRef Name="OrderDishes code" />
+          </Key>
+          <Property Name="OrderDishes code" Type="int" Nullable="false" />
+          <Property Name="Order code" Type="int" Nullable="false" />
+          <Property Name="Dishes code" Type="int" Nullable="false" />
+          <Property Name="TotalAmount" Type="nchar" MaxLength="10" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchases">
+          <Key>
+            <PropertyRef Name="Purchases code" />
+          </Key>
+          <Property Name="Purchases code" Type="int" Nullable="false" />
+          <Property Name="Ingredients code" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Supplier code" Type="int" Nullable="false" />
+          <Property Name="Unit code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Role code" />
+          </Key>
+          <Property Name="Role code" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="Services code" />
+          </Key>
+          <Property Name="Services code" Type="int" Nullable="false" />
+          <Property Name="EntertainmentPrograms code" Type="int" Nullable="false" />
+          <Property Name="Menu code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Staff code" />
+          </Key>
+          <Property Name="Staff code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role code" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="Phone number" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="User code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Supplier code" />
+          </Key>
+          <Property Name="Supplier code" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TaxPayments">
+          <Key>
+            <PropertyRef Name="TaxPayments code" />
+          </Key>
+          <Property Name="TaxPayments code" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="TaxPrice code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaxPrice">
+          <Key>
+            <PropertyRef Name="TaxPrice code" />
+          </Key>
+          <Property Name="TaxPrice code" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Unit code" />
+          </Key>
+          <Property Name="Unit code" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User code" />
+          </Key>
+          <Property Name="User code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK_Ancestor_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Ancestor" Type="Self.Ancestor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Order code" />
+            </Principal>
+            <Dependent Role="Ancestor">
+              <PropertyRef Name="OrderDishes code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ancestor_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="Ancestor" Type="Self.Ancestor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Staff code" />
+            </Principal>
+            <Dependent Role="Ancestor">
+              <PropertyRef Name="Staff code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ancestor_TaxPrice">
+          <End Role="TaxPrice" Type="Self.TaxPrice" Multiplicity="1" />
+          <End Role="Ancestor" Type="Self.Ancestor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPrice">
+              <PropertyRef Name="TaxPrice code" />
+            </Principal>
+            <Dependent Role="Ancestor">
+              <PropertyRef Name="TaxPrice code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cheque_Ancestor">
+          <End Role="Ancestor" Type="Self.Ancestor" Multiplicity="1" />
+          <End Role="Cheque" Type="Self.Cheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ancestor">
+              <PropertyRef Name="Ancestor code" />
+            </Principal>
+            <Dependent Role="Cheque">
+              <PropertyRef Name="Ancesor code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DishIngredients_Dishes">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="DishIngredients" Type="Self.DishIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Dishes code" />
+            </Principal>
+            <Dependent Role="DishIngredients">
+              <PropertyRef Name="Dishes code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DishIngredients_Ingredients">
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="1" />
+          <End Role="DishIngredients" Type="Self.DishIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredients">
+              <PropertyRef Name="Ingredients code" />
+            </Principal>
+            <Dependent Role="DishIngredients">
+              <PropertyRef Name="Ingredients code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredients_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Unit code" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="Unit code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menu_Ready meal">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Dishes code" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="Dishes code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuDises_Dishes">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="MenuDises" Type="Self.MenuDises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Dishes code" />
+            </Principal>
+            <Dependent Role="MenuDises">
+              <PropertyRef Name="Dishes code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuDises_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="MenuDises" Type="Self.MenuDises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Menu code" />
+            </Principal>
+            <Dependent Role="MenuDises">
+              <PropertyRef Name="Menu code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDishes_Dishes">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="OrderDishes" Type="Self.OrderDishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Dishes code" />
+            </Principal>
+            <Dependent Role="OrderDishes">
+              <PropertyRef Name="Dishes code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDishes_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderDishes" Type="Self.OrderDishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Order code" />
+            </Principal>
+            <Dependent Role="OrderDishes">
+              <PropertyRef Name="Order code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Ingredients">
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="1" />
+          <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredients">
+              <PropertyRef Name="Ingredients code" />
+            </Principal>
+            <Dependent Role="Purchases">
+              <PropertyRef Name="Ingredients code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier code" />
+            </Principal>
+            <Dependent Role="Purchases">
+              <PropertyRef Name="Supplier code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+          <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Unit code" />
+            </Principal>
+            <Dependent Role="Purchases">
+              <PropertyRef Name="Unit code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_EntertainmentPrograms">
+          <End Role="EntertainmentPrograms" Type="Self.EntertainmentPrograms" Multiplicity="1" />
+          <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EntertainmentPrograms">
+              <PropertyRef Name="EntertainmentPrograms code" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="Services code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="Services" Type="Self.Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Menu code" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="Menu code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Login">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User code" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="User code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Role code" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="Role code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaxPayments_TaxPrice">
+          <End Role="TaxPrice" Type="Self.TaxPrice" Multiplicity="1" />
+          <End Role="TaxPayments" Type="Self.TaxPayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPrice">
+              <PropertyRef Name="TaxPrice code" />
+            </Principal>
+            <Dependent Role="TaxPayments">
+              <PropertyRef Name="TaxPrice code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище РесторанModelContainer">
+          <EntitySet Name="Ancestor" EntityType="Self.Ancestor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cheque" EntityType="Self.Cheque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DishIngredients" EntityType="Self.DishIngredients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntertainmentPrograms" EntityType="Self.EntertainmentPrograms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuDises" EntityType="Self.MenuDises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDishes" EntityType="Self.OrderDishes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxPayments" EntityType="Self.TaxPayments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxPrice" EntityType="Self.TaxPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ancestor_Order" Association="Self.FK_Ancestor_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Ancestor" EntitySet="Ancestor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ancestor_Staff" Association="Self.FK_Ancestor_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Ancestor" EntitySet="Ancestor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ancestor_TaxPrice" Association="Self.FK_Ancestor_TaxPrice">
+            <End Role="TaxPrice" EntitySet="TaxPrice" />
+            <End Role="Ancestor" EntitySet="Ancestor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cheque_Ancestor" Association="Self.FK_Cheque_Ancestor">
+            <End Role="Ancestor" EntitySet="Ancestor" />
+            <End Role="Cheque" EntitySet="Cheque" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DishIngredients_Dishes" Association="Self.FK_DishIngredients_Dishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="DishIngredients" EntitySet="DishIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DishIngredients_Ingredients" Association="Self.FK_DishIngredients_Ingredients">
+            <End Role="Ingredients" EntitySet="Ingredients" />
+            <End Role="DishIngredients" EntitySet="DishIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredients_Unit" Association="Self.FK_Ingredients_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menu_Ready meal" Association="Self.FK_Menu_Ready meal">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuDises_Dishes" Association="Self.FK_MenuDises_Dishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="MenuDises" EntitySet="MenuDises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuDises_Menu" Association="Self.FK_MenuDises_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="MenuDises" EntitySet="MenuDises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDishes_Dishes" Association="Self.FK_OrderDishes_Dishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="OrderDishes" EntitySet="OrderDishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDishes_Order" Association="Self.FK_OrderDishes_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDishes" EntitySet="OrderDishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Ingredients" Association="Self.FK_Purchases_Ingredients">
+            <End Role="Ingredients" EntitySet="Ingredients" />
+            <End Role="Purchases" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Supplier" Association="Self.FK_Purchases_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Purchases" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Unit" Association="Self.FK_Purchases_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Purchases" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_EntertainmentPrograms" Association="Self.FK_Services_EntertainmentPrograms">
+            <End Role="EntertainmentPrograms" EntitySet="EntertainmentPrograms" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_Menu" Association="Self.FK_Services_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Login" Association="Self.FK_Staff_Login">
+            <End Role="User" EntitySet="User" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Role" Association="Self.FK_Staff_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaxPayments_TaxPrice" Association="Self.FK_TaxPayments_TaxPrice">
+            <End Role="TaxPrice" EntitySet="TaxPrice" />
+            <End Role="TaxPayments" EntitySet="TaxPayments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="РесторанModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ancestor">
+          <Key>
+            <PropertyRef Name="Ancestor_code" />
+          </Key>
+          <Property Name="Ancestor_code" Type="Int32" Nullable="false" />
+          <Property Name="OrderDishes_code" Type="Int32" Nullable="false" />
+          <Property Name="TableNumber" Type="Int32" Nullable="false" />
+          <Property Name="Staff_code" Type="Int32" Nullable="false" />
+          <Property Name="AncestorDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TaxPrice_code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Ancestor_Order" FromRole="Ancestor" ToRole="Order" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Ancestor_Staff" FromRole="Ancestor" ToRole="Staff" />
+          <NavigationProperty Name="TaxPrice" Relationship="Self.FK_Ancestor_TaxPrice" FromRole="Ancestor" ToRole="TaxPrice" />
+          <NavigationProperty Name="Cheque" Relationship="Self.FK_Cheque_Ancestor" FromRole="Ancestor" ToRole="Cheque" />
+        </EntityType>
+        <EntityType Name="Cheque">
+          <Key>
+            <PropertyRef Name="Cheque_code" />
+          </Key>
+          <Property Name="Cheque_code" Type="Int32" Nullable="false" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PaymentDate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Ancesor_code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ancestor" Relationship="Self.FK_Cheque_Ancestor" FromRole="Cheque" ToRole="Ancestor" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="Dishes_code" />
+          </Key>
+          <Property Name="Dishes_code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DishIngredients" Relationship="Self.FK_DishIngredients_Dishes" FromRole="Dishes" ToRole="DishIngredients" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_Menu_Ready_meal" FromRole="Dishes" ToRole="Menu" />
+          <NavigationProperty Name="MenuDises" Relationship="Self.FK_MenuDises_Dishes" FromRole="Dishes" ToRole="MenuDises" />
+          <NavigationProperty Name="OrderDishes" Relationship="Self.FK_OrderDishes_Dishes" FromRole="Dishes" ToRole="OrderDishes" />
+        </EntityType>
+        <EntityType Name="DishIngredients">
+          <Key>
+            <PropertyRef Name="DishIngredients_code" />
+          </Key>
+          <Property Name="DishIngredients_code" Type="Int32" Nullable="false" />
+          <Property Name="Ingredients_code" Type="Int32" Nullable="false" />
+          <Property Name="Dishes_code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_DishIngredients_Dishes" FromRole="DishIngredients" ToRole="Dishes" />
+          <NavigationProperty Name="Ingredients" Relationship="Self.FK_DishIngredients_Ingredients" FromRole="DishIngredients" ToRole="Ingredients" />
+        </EntityType>
+        <EntityType Name="EntertainmentPrograms">
+          <Key>
+            <PropertyRef Name="EntertainmentPrograms_code" />
+          </Key>
+          <Property Name="EntertainmentPrograms_code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Services" Relationship="Self.FK_Services_EntertainmentPrograms" FromRole="EntertainmentPrograms" ToRole="Services" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="Ingredients_code" />
+          </Key>
+          <Property Name="Ingredients_code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Unit_code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DishIngredients" Relationship="Self.FK_DishIngredients_Ingredients" FromRole="Ingredients" ToRole="DishIngredients" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK_Ingredients_Unit" FromRole="Ingredients" ToRole="Unit" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchases_Ingredients" FromRole="Ingredients" ToRole="Purchases" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Menu_code" />
+          </Key>
+          <Property Name="Menu_code" Type="Int32" Nullable="false" />
+          <Property Name="Dishes_code" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_Menu_Ready_meal" FromRole="Menu" ToRole="Dishes" />
+          <NavigationProperty Name="MenuDises" Relationship="Self.FK_MenuDises_Menu" FromRole="Menu" ToRole="MenuDises" />
+          <NavigationProperty Name="Services" Relationship="Self.FK_Services_Menu" FromRole="Menu" ToRole="Services" />
+        </EntityType>
+        <EntityType Name="MenuDises">
+          <Key>
+            <PropertyRef Name="MenuDishes" />
+          </Key>
+          <Property Name="MenuDishes" Type="Int32" Nullable="false" />
+          <Property Name="Menu_code" Type="Int32" Nullable="false" />
+          <Property Name="Dishes_code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_MenuDises_Dishes" FromRole="MenuDises" ToRole="Dishes" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_MenuDises_Menu" FromRole="MenuDises" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Order_code" />
+          </Key>
+          <Property Name="Order_code" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Ancestor" Relationship="Self.FK_Ancestor_Order" FromRole="Order" ToRole="Ancestor" />
+          <NavigationProperty Name="OrderDishes" Relationship="Self.FK_OrderDishes_Order" FromRole="Order" ToRole="OrderDishes" />
+        </EntityType>
+        <EntityType Name="OrderDishes">
+          <Key>
+            <PropertyRef Name="OrderDishes_code" />
+          </Key>
+          <Property Name="OrderDishes_code" Type="Int32" Nullable="false" />
+          <Property Name="Order_code" Type="Int32" Nullable="false" />
+          <Property Name="Dishes_code" Type="Int32" Nullable="false" />
+          <Property Name="TotalAmount" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_OrderDishes_Dishes" FromRole="OrderDishes" ToRole="Dishes" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderDishes_Order" FromRole="OrderDishes" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Purchases">
+          <Key>
+            <PropertyRef Name="Purchases_code" />
+          </Key>
+          <Property Name="Purchases_code" Type="Int32" Nullable="false" />
+          <Property Name="Ingredients_code" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Supplier_code" Type="Int32" Nullable="false" />
+          <Property Name="Unit_code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ingredients" Relationship="Self.FK_Purchases_Ingredients" FromRole="Purchases" ToRole="Ingredients" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Purchases_Supplier" FromRole="Purchases" ToRole="Supplier" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK_Purchases_Unit" FromRole="Purchases" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Role_code" />
+          </Key>
+          <Property Name="Role_code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Role" FromRole="Role" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="Services_code" />
+          </Key>
+          <Property Name="Services_code" Type="Int32" Nullable="false" />
+          <Property Name="EntertainmentPrograms_code" Type="Int32" Nullable="false" />
+          <Property Name="Menu_code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EntertainmentPrograms" Relationship="Self.FK_Services_EntertainmentPrograms" FromRole="Services" ToRole="EntertainmentPrograms" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_Services_Menu" FromRole="Services" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Staff_code" />
+          </Key>
+          <Property Name="Staff_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_number" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="User_code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ancestor" Relationship="Self.FK_Ancestor_Staff" FromRole="Staff" ToRole="Ancestor" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Staff_Role" FromRole="Staff" ToRole="Role" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Staff_Login" FromRole="Staff" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Supplier_code" />
+          </Key>
+          <Property Name="Supplier_code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchases_Supplier" FromRole="Supplier" ToRole="Purchases" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TaxPayments">
+          <Key>
+            <PropertyRef Name="TaxPayments_code" />
+          </Key>
+          <Property Name="TaxPayments_code" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TaxPrice_code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TaxPrice" Relationship="Self.FK_TaxPayments_TaxPrice" FromRole="TaxPayments" ToRole="TaxPrice" />
+        </EntityType>
+        <EntityType Name="TaxPrice">
+          <Key>
+            <PropertyRef Name="TaxPrice_code" />
+          </Key>
+          <Property Name="TaxPrice_code" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Ancestor" Relationship="Self.FK_Ancestor_TaxPrice" FromRole="TaxPrice" ToRole="Ancestor" />
+          <NavigationProperty Name="TaxPayments" Relationship="Self.FK_TaxPayments_TaxPrice" FromRole="TaxPrice" ToRole="TaxPayments" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Unit_code" />
+          </Key>
+          <Property Name="Unit_code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ingredients" Relationship="Self.FK_Ingredients_Unit" FromRole="Unit" ToRole="Ingredients" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchases_Unit" FromRole="Unit" ToRole="Purchases" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_code" />
+          </Key>
+          <Property Name="User_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Login" FromRole="User" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK_Ancestor_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Ancestor" Type="Self.Ancestor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Order_code" />
+            </Principal>
+            <Dependent Role="Ancestor">
+              <PropertyRef Name="OrderDishes_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ancestor_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="Ancestor" Type="Self.Ancestor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Staff_code" />
+            </Principal>
+            <Dependent Role="Ancestor">
+              <PropertyRef Name="Staff_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ancestor_TaxPrice">
+          <End Role="TaxPrice" Type="Self.TaxPrice" Multiplicity="1" />
+          <End Role="Ancestor" Type="Self.Ancestor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPrice">
+              <PropertyRef Name="TaxPrice_code" />
+            </Principal>
+            <Dependent Role="Ancestor">
+              <PropertyRef Name="TaxPrice_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cheque_Ancestor">
+          <End Role="Ancestor" Type="Self.Ancestor" Multiplicity="1" />
+          <End Role="Cheque" Type="Self.Cheque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ancestor">
+              <PropertyRef Name="Ancestor_code" />
+            </Principal>
+            <Dependent Role="Cheque">
+              <PropertyRef Name="Ancesor_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DishIngredients_Dishes">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="DishIngredients" Type="Self.DishIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Dishes_code" />
+            </Principal>
+            <Dependent Role="DishIngredients">
+              <PropertyRef Name="Dishes_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menu_Ready_meal">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Dishes_code" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="Dishes_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuDises_Dishes">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="MenuDises" Type="Self.MenuDises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Dishes_code" />
+            </Principal>
+            <Dependent Role="MenuDises">
+              <PropertyRef Name="Dishes_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDishes_Dishes">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="OrderDishes" Type="Self.OrderDishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Dishes_code" />
+            </Principal>
+            <Dependent Role="OrderDishes">
+              <PropertyRef Name="Dishes_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DishIngredients_Ingredients">
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="1" />
+          <End Role="DishIngredients" Type="Self.DishIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredients">
+              <PropertyRef Name="Ingredients_code" />
+            </Principal>
+            <Dependent Role="DishIngredients">
+              <PropertyRef Name="Ingredients_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_EntertainmentPrograms">
+          <End Role="EntertainmentPrograms" Type="Self.EntertainmentPrograms" Multiplicity="1" />
+          <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EntertainmentPrograms">
+              <PropertyRef Name="EntertainmentPrograms_code" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="Services_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredients_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Unit_code" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="Unit_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Ingredients">
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="1" />
+          <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredients">
+              <PropertyRef Name="Ingredients_code" />
+            </Principal>
+            <Dependent Role="Purchases">
+              <PropertyRef Name="Ingredients_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuDises_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="MenuDises" Type="Self.MenuDises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Menu_code" />
+            </Principal>
+            <Dependent Role="MenuDises">
+              <PropertyRef Name="Menu_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="Services" Type="Self.Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Menu_code" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="Menu_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDishes_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderDishes" Type="Self.OrderDishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Order_code" />
+            </Principal>
+            <Dependent Role="OrderDishes">
+              <PropertyRef Name="Order_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier_code" />
+            </Principal>
+            <Dependent Role="Purchases">
+              <PropertyRef Name="Supplier_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+          <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Unit_code" />
+            </Principal>
+            <Dependent Role="Purchases">
+              <PropertyRef Name="Unit_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Role_code" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="Role_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Login">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_code" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="User_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaxPayments_TaxPrice">
+          <End Role="TaxPrice" Type="Self.TaxPrice" Multiplicity="1" />
+          <End Role="TaxPayments" Type="Self.TaxPayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPrice">
+              <PropertyRef Name="TaxPrice_code" />
+            </Principal>
+            <Dependent Role="TaxPayments">
+              <PropertyRef Name="TaxPrice_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="РесторанEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ancestor" EntityType="Self.Ancestor" />
+          <EntitySet Name="Cheque" EntityType="Self.Cheque" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+          <EntitySet Name="DishIngredients" EntityType="Self.DishIngredients" />
+          <EntitySet Name="EntertainmentPrograms" EntityType="Self.EntertainmentPrograms" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredients" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="MenuDises" EntityType="Self.MenuDises" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="OrderDishes" EntityType="Self.OrderDishes" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchases" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Services" EntityType="Self.Services" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TaxPayments" EntityType="Self.TaxPayments" />
+          <EntitySet Name="TaxPrice" EntityType="Self.TaxPrice" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Ancestor_Order" Association="Self.FK_Ancestor_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Ancestor" EntitySet="Ancestor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ancestor_Staff" Association="Self.FK_Ancestor_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Ancestor" EntitySet="Ancestor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ancestor_TaxPrice" Association="Self.FK_Ancestor_TaxPrice">
+            <End Role="TaxPrice" EntitySet="TaxPrice" />
+            <End Role="Ancestor" EntitySet="Ancestor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cheque_Ancestor" Association="Self.FK_Cheque_Ancestor">
+            <End Role="Ancestor" EntitySet="Ancestor" />
+            <End Role="Cheque" EntitySet="Cheque" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DishIngredients_Dishes" Association="Self.FK_DishIngredients_Dishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="DishIngredients" EntitySet="DishIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menu_Ready_meal" Association="Self.FK_Menu_Ready_meal">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuDises_Dishes" Association="Self.FK_MenuDises_Dishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="MenuDises" EntitySet="MenuDises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDishes_Dishes" Association="Self.FK_OrderDishes_Dishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="OrderDishes" EntitySet="OrderDishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DishIngredients_Ingredients" Association="Self.FK_DishIngredients_Ingredients">
+            <End Role="Ingredients" EntitySet="Ingredients" />
+            <End Role="DishIngredients" EntitySet="DishIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_EntertainmentPrograms" Association="Self.FK_Services_EntertainmentPrograms">
+            <End Role="EntertainmentPrograms" EntitySet="EntertainmentPrograms" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredients_Unit" Association="Self.FK_Ingredients_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Ingredients" Association="Self.FK_Purchases_Ingredients">
+            <End Role="Ingredients" EntitySet="Ingredients" />
+            <End Role="Purchases" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuDises_Menu" Association="Self.FK_MenuDises_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="MenuDises" EntitySet="MenuDises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_Menu" Association="Self.FK_Services_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDishes_Order" Association="Self.FK_OrderDishes_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDishes" EntitySet="OrderDishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Supplier" Association="Self.FK_Purchases_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Purchases" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Unit" Association="Self.FK_Purchases_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Purchases" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Role" Association="Self.FK_Staff_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Login" Association="Self.FK_Staff_Login">
+            <End Role="User" EntitySet="User" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaxPayments_TaxPrice" Association="Self.FK_TaxPayments_TaxPrice">
+            <End Role="TaxPrice" EntitySet="TaxPrice" />
+            <End Role="TaxPayments" EntitySet="TaxPayments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище РесторанModelContainer" CdmEntityContainer="РесторанEntities3">
+          <EntitySetMapping Name="Ancestor">
+            <EntityTypeMapping TypeName="РесторанModel.Ancestor">
+              <MappingFragment StoreEntitySet="Ancestor">
+                <ScalarProperty Name="Ancestor_code" ColumnName="Ancestor code" />
+                <ScalarProperty Name="OrderDishes_code" ColumnName="OrderDishes code" />
+                <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
+                <ScalarProperty Name="Staff_code" ColumnName="Staff code" />
+                <ScalarProperty Name="AncestorDate" ColumnName="AncestorDate" />
+                <ScalarProperty Name="TaxPrice_code" ColumnName="TaxPrice code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cheque">
+            <EntityTypeMapping TypeName="РесторанModel.Cheque">
+              <MappingFragment StoreEntitySet="Cheque">
+                <ScalarProperty Name="Cheque_code" ColumnName="Cheque code" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="Ancesor_code" ColumnName="Ancesor code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dishes">
+            <EntityTypeMapping TypeName="РесторанModel.Dishes">
+              <MappingFragment StoreEntitySet="Dishes">
+                <ScalarProperty Name="Dishes_code" ColumnName="Dishes code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DishIngredients">
+            <EntityTypeMapping TypeName="РесторанModel.DishIngredients">
+              <MappingFragment StoreEntitySet="DishIngredients">
+                <ScalarProperty Name="DishIngredients_code" ColumnName="DishIngredients code" />
+                <ScalarProperty Name="Ingredients_code" ColumnName="Ingredients code" />
+                <ScalarProperty Name="Dishes_code" ColumnName="Dishes code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntertainmentPrograms">
+            <EntityTypeMapping TypeName="РесторанModel.EntertainmentPrograms">
+              <MappingFragment StoreEntitySet="EntertainmentPrograms">
+                <ScalarProperty Name="EntertainmentPrograms_code" ColumnName="EntertainmentPrograms code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredients">
+            <EntityTypeMapping TypeName="РесторанModel.Ingredients">
+              <MappingFragment StoreEntitySet="Ingredients">
+                <ScalarProperty Name="Ingredients_code" ColumnName="Ingredients code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Unit_code" ColumnName="Unit code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="РесторанModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Menu_code" ColumnName="Menu code" />
+                <ScalarProperty Name="Dishes_code" ColumnName="Dishes code" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuDises">
+            <EntityTypeMapping TypeName="РесторанModel.MenuDises">
+              <MappingFragment StoreEntitySet="MenuDises">
+                <ScalarProperty Name="MenuDishes" ColumnName="MenuDishes" />
+                <ScalarProperty Name="Menu_code" ColumnName="Menu code" />
+                <ScalarProperty Name="Dishes_code" ColumnName="Dishes code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="РесторанModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Order_code" ColumnName="Order code" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDishes">
+            <EntityTypeMapping TypeName="РесторанModel.OrderDishes">
+              <MappingFragment StoreEntitySet="OrderDishes">
+                <ScalarProperty Name="OrderDishes_code" ColumnName="OrderDishes code" />
+                <ScalarProperty Name="Order_code" ColumnName="Order code" />
+                <ScalarProperty Name="Dishes_code" ColumnName="Dishes code" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="РесторанModel.Purchases">
+              <MappingFragment StoreEntitySet="Purchases">
+                <ScalarProperty Name="Purchases_code" ColumnName="Purchases code" />
+                <ScalarProperty Name="Ingredients_code" ColumnName="Ingredients code" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Supplier_code" ColumnName="Supplier code" />
+                <ScalarProperty Name="Unit_code" ColumnName="Unit code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="РесторанModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Role_code" ColumnName="Role code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="РесторанModel.Services">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Services_code" ColumnName="Services code" />
+                <ScalarProperty Name="EntertainmentPrograms_code" ColumnName="EntertainmentPrograms code" />
+                <ScalarProperty Name="Menu_code" ColumnName="Menu code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="РесторанModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Staff_code" ColumnName="Staff code" />
+                <ScalarProperty Name="Role_code" ColumnName="Role code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone number" />
+                <ScalarProperty Name="User_code" ColumnName="User code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplier">
+            <EntityTypeMapping TypeName="РесторанModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Supplier_code" ColumnName="Supplier code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="РесторанModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxPayments">
+            <EntityTypeMapping TypeName="РесторанModel.TaxPayments">
+              <MappingFragment StoreEntitySet="TaxPayments">
+                <ScalarProperty Name="TaxPayments_code" ColumnName="TaxPayments code" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TaxPrice_code" ColumnName="TaxPrice code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxPrice">
+            <EntityTypeMapping TypeName="РесторанModel.TaxPrice">
+              <MappingFragment StoreEntitySet="TaxPrice">
+                <ScalarProperty Name="TaxPrice_code" ColumnName="TaxPrice code" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unit">
+            <EntityTypeMapping TypeName="РесторанModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="Unit_code" ColumnName="Unit code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="РесторанModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="User_code" ColumnName="User code" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

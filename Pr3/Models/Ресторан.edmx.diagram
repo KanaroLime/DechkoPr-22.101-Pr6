@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fbfe6471847d4edbb9b221f2e6030d11" Name="Diagram1">
+        <EntityTypeShape EntityType="РесторанModel.Ancestor" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Cheque" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Dishes" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.DishIngredients" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.EntertainmentPrograms" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Ingredients" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Menu" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.MenuDises" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Order" Width="1.5" PointX="3.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.OrderDishes" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Purchases" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Role" Width="1.5" PointX="1.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Services" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Staff" Width="1.5" PointX="3.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Supplier" Width="1.5" PointX="5.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.TaxPayments" Width="1.5" PointX="6" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.TaxPrice" Width="1.5" PointX="3.75" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.Unit" Width="1.5" PointX="1.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="РесторанModel.User" Width="1.5" PointX="1.5" PointY="21.25" IsExpanded="true" />
+        <AssociationConnector Association="РесторанModel.FK_Ancestor_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Ancestor_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Ancestor_TaxPrice" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Cheque_Ancestor" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_DishIngredients_Dishes" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Menu_Ready_meal" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_MenuDises_Dishes" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_OrderDishes_Dishes" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_DishIngredients_Ingredients" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Services_EntertainmentPrograms" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Ingredients_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Purchases_Ingredients" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_MenuDises_Menu" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Services_Menu" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_OrderDishes_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Purchases_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Purchases_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Staff_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_Staff_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="РесторанModel.FK_TaxPayments_TaxPrice" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

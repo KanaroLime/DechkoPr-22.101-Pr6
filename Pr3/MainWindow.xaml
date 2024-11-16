@@ -1,0 +1,21 @@
+﻿<Window x:Class="Pr3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pr3"
+        mc:Ignorable="d"
+        Title="Ресторан" Height="710" Width="1000" Icon="/Resources/skye_canine_patrol_paw_patrol_icon_263867.ico" MinHeight = "710" MinWidth ="1000" WindowStartupLocation = "CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#ff76e383" >
+            <Button x:Name="btnback" HorizontalAlignment="Right" Content="Назад" Click="btnBack_Click" Cursor="Hand"/>
+            <Image Width="45" Margin="10,7,0,7" HorizontalAlignment="Left" Source="/Resources/Rectangle 82 (1).png"/>
+        </Grid>
+        <Frame x:Name="FrmMain" Grid.Row="1" NavigationUIVisibility="Hidden" ContentRendered="frСontent_ContentRendered"/>
+    </Grid>
+</Window>
